@@ -3,7 +3,7 @@ Train Mask R-CNN to detect and crop out septin rings.
 
 If desired, cropped rings can be further filtered with a simple Keras Classifier.
 
-Some example images are provided in respective folders, and more can also be found on VutaraAnalyse computer on "C:\Users\Braedyn Au\Desktop\newmaskrcnn\Mask_RCNN".
+Some example images are provided in respective folders, and more can also be found on VutaraAnalyse computer on "C:\Users\Braedyn Au\Desktop\newmaskrcnn\Mask_RCNN". The PowerAnalyze required CUDA and CuDNN installation to run TensorFlow-GPU
 
 ## Installation of Mask R-CNN for Ring Detection and Training
 1. Clone this repository
