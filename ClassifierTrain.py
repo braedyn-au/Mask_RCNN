@@ -20,8 +20,8 @@ from tqdm import tqdm
 
 
 #load data, probably best to put the script in the folder with data
-train_data = './train/'
-test_data = './test/'
+train_data = './Classifier Images/'
+# test_data = './test/'
 
 
 # In[168]:
@@ -74,6 +74,7 @@ def train_data_with_label():
 
 def test_data_with_label():
     '''
+    Unused
     labels each image in the test folder
     not used
     '''
