@@ -28,7 +28,7 @@ Follow the instructions found on the Detector Train notebook (DetectorTrain.ipyn
 3. Use LabelMe on the Images folder and label the rings on the images. Final file tree should look like this
 ```bash
 |-- Septin_Mask_RCNN
-        |-- DetectorSort.ipynb
+        |-- DetectorPredict.ipynb
         |-- DetectorTrain.ipynb
         |-- Images
             |-- train
