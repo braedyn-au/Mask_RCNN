@@ -1,3 +1,64 @@
+# Mask R-CNN for Septin Ring detection and cropping with Classifier
+Train Mask R-CNN to detect and crop out septin rings.
+If desired, cropped rings can be further filtered with a Classifier.
+
+
+## Installation of Mask R-CNN for Ring Detection and Training
+1. Clone this repository
+2. Install dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run setup from the repository root directory
+    ```bash
+    python setup.py install
+    ``` 
+3. Download pre-trained COCO weights (mask_rcnn_coco.h5) from the [releases page](https://github.com/matterport/Mask_RCNN/releases).
+
+## Use Ring Detector
+Follow the instructions found on the Detector Predict Notebook (DetectorPredict.ipynb) opened using Jupyter.
+1. Requires a pretrained model first.
+2. Requires images to be cropped using the Fiji macro provided (cropopenimages.ijm) and placed into a single folder.
+2. Follow the prompts from the notebook to select the folder of images to analyze, the pretrained model, and an output folder.
+
+## Train Ring Detector 
+Follow the instructions found on the Detector Train notebook (DetectorTrain.ipynb) opened using Jupyter. 
+1. Install LabelMe following the instructions found on https://github.com/wkentaro/labelme
+2. To train the model on our own images, crop images using the Fiji macro provided (cropopenimages.ijm) and place them into the Images folder.
+3. Use LabelMe on the Images folder and label the rings on the images.
+4. Run the notebook through with the correct parameters such as steps per epoch.
+
+## Use Ring Classifier
+Using either the provided or self trained keras model, you can now sort a folder of segmented ring images from the MaskRCNN detector. In the current directory, simply run:
+```
+python ClassifierSort.py
+```
+A prompt will appear where you will select the folder containing the images to be classified. The script runs and you will find your images sorted into good and bad folders.
+
+## Train Ring Classifier
+Place cropped rings into the Classifer Images folder and sort them into a 'good' and 'bad' folder. Your file tree should look like this.
+```bash
+|-- Septin_Mask_RCNN
+        |-- ClassifierSort.py
+        |-- ClassifierTrain.py
+        |-- Classifier Images
+            |-- good
+              |-- img1
+              |-- img2
+              |-- ...
+            |-- bad
+              |-- img3
+              |-- img4
+              |-- ...
+
+```
+With the ClassifierTrain script in the main folder, simply run in Anaconda prompt:
+```
+python ClassifierTrain.py
+```
+A folder named 'keras model' should appear with a .h5 file inside. This is your Classifier model with trained weights and will be automatically loaded in the Classifer Sort script.
+
+########################################################################################################################################
 # Mask R-CNN for Object Detection and Segmentation
 
 This is an implementation of [Mask R-CNN](https://arxiv.org/abs/1703.06870) on Python 3, Keras, and TensorFlow. The model generates bounding boxes and segmentation masks for each instance of an object in the image. It's based on Feature Pyramid Network (FPN) and a ResNet101 backbone.
@@ -177,23 +238,6 @@ To train or test on MS COCO, you'll also need:
 If you use Docker, the code has been verified to work on
 [this Docker container](https://hub.docker.com/r/waleedka/modern-deep-learning/).
 
-
-## Installation
-1. Clone this repository
-2. Install dependencies
-   ```bash
-   pip3 install -r requirements.txt
-   ```
-3. Run setup from the repository root directory
-    ```bash
-    python3 setup.py install
-    ``` 
-3. Download pre-trained COCO weights (mask_rcnn_coco.h5) from the [releases page](https://github.com/matterport/Mask_RCNN/releases).
-4. (Optional) To train or test on MS COCO install `pycocotools` from one of these repos. They are forks of the original pycocotools with fixes for Python3 and Windows (the official repo doesn't seem to be active anymore).
-
-    * Linux: https://github.com/waleedka/coco
-    * Windows: https://github.com/philferriere/cocoapi.
-    You must have the Visual C++ 2015 build tools on your path (see the repo for additional details)
 
 # Projects Using this Model
 If you extend this model to other datasets or build projects that use it, we'd love to hear from you.
