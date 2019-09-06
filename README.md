@@ -58,7 +58,6 @@ python ClassifierTrain.py
 ```
 A folder named 'keras model' should appear with a .h5 file inside. This is your Classifier model with trained weights and will be automatically loaded in the Classifer Sort script.
 
-Original README: 
 
 # Mask R-CNN for Object Detection and Segmentation
 
