@@ -24,8 +24,28 @@ Follow the instructions found on the Detector Predict Notebook (DetectorPredict.
 ## Train Ring Detector 
 Follow the instructions found on the Detector Train notebook (DetectorTrain.ipynb) opened using Jupyter. 
 1. Install LabelMe following the instructions found on https://github.com/wkentaro/labelme
-2. To train the model on our own images, crop images using the Fiji macro provided (cropopenimages.ijm) and place them into the Images folder.
-3. Use LabelMe on the Images folder and label the rings on the images.
+2. To train the model on our own images, crop images using the Fiji macro provided (cropopenimages.ijm) and place them into the Images folder. Sort into train and test folders, keeping 80% of the images in train and 20% in test
+3. Use LabelMe on the Images folder and label the rings on the images. Final file tree should look like this
+```bash
+|-- Septin_Mask_RCNN
+        |-- DetectorSort.ipynb
+        |-- DetectorTrain.ipynb
+        |-- Images
+            |-- train
+              |-- img1.tif
+              |-- img1.json
+              |-- img2.tif
+              |-- img2.json
+              |-- ...
+            |-- test
+              |-- img3.tif
+              |-- img3.json
+              |-- img4.tif
+              |-- img4.json
+              |-- ...
+
+```
+
 4. Run the notebook through with the correct parameters such as steps per epoch.
 
 ## Use Ring Classifier
