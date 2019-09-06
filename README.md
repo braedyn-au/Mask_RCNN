@@ -26,6 +26,18 @@ Follow the instructions found on the Detector Predict Notebook (DetectorPredict.
 ## Train Ring Detector 
 Follow the instructions found on the Detector Train notebook (DetectorTrain.ipynb) opened using Jupyter. 
 1. Install LabelMe following the instructions found on https://github.com/wkentaro/labelme
+   In Anaconda Poewrshell Prompt run:
+```
+conda create --name=labelme python=3.6
+conda activate labelme
+pip install labelme
+labelme
+```
+   When opening a new Anaconda Prompt, LabelMe can be used in the labelme environment.
+```
+conda activate labelme
+labelme
+```
 2. To train the model on our own images, crop images using the Fiji macro provided (cropopenimages.ijm) and place them into the Images folder. Sort into train and test folders, keeping 80% of the images in train and 20% in test
 3. Use LabelMe on the Images folder and label the rings on the images. Final file tree should look like this
 ```bash
